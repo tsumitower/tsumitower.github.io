@@ -20,7 +20,7 @@
     [250, '積みの神 👑'],
   ];
   const SCALE = [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24]; // ペンタトニック
-  const SITE_URL = 'https://sukai132.github.io/tsumi-tower-pages/'; // シェアに付けるWeb版のURL
+  const SITE_URL = 'https://tsumitower.github.io/'; // シェアに付けるWeb版のURL
   // きせかえ: best=自己ベスト段数, total=累計段数 で解放
   const SKINS = [
     { id: 'color', name: 'カラフル' },
