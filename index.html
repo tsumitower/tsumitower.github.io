@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1b2440">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>つみつみタワー</title>
+  <meta name="description" content="タップで落として、どこまでも高く積み上げろ！ぴったり重ねてPERFECTを連発する1タップ積み上げゲーム。登録なし・無料でブラウザから遊べます。">
+  <!-- SNSでシェアされたときの表示 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="つみつみタワー">
+  <meta property="og:description" content="タップで積んで、どこまでも高く。1タップ積み上げゲーム">
+  <meta property="og:url" content="https://sukai132.github.io/tsumi-tower-pages/">
+  <meta property="og:image" content="https://sukai132.github.io/tsumi-tower-pages/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="score">0</div>
+    <div id="combo"></div>
+    <div id="modeLabel"></div>
+  </div>
+  <div id="toast"></div>
+
+  <div id="title" class="overlay">
+    <h1>つみつみ<br>タワー</h1>
+    <p class="sub">タップでブロックを落として<br>どこまでも高く積み上げろ！</p>
+    <p class="best">ベスト: <span id="titleBest">0</span>段</p>
+    <p class="blink">タップでスタート</p>
+    <button id="dailyBtn" class="ghost">
+      <span class="daily-title">📅 デイリーチャレンジ</span>
+      <span id="dailyInfo" class="daily-info"></span>
+    </button>
+    <div class="title-row">
+      <button id="titleRankBtn" class="ghost small">🌏 ランキング</button>
+      <button id="titleSkinBtn" class="ghost small">🎨 きせかえ</button>
+    </div>
+    <a id="privacyLink" href="https://sukai132.github.io/tsumi-tower-pages/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+  </div>
+
+  <div id="over" class="overlay hidden">
+    <p id="overLabel" class="label">GAME OVER</p>
+    <div id="finalScore">0</div>
+    <p class="unit">段</p>
+    <p id="rank"></p>
+    <p id="newBest" class="hidden">🎉 自己ベスト更新！</p>
+    <p id="unlockMsg" class="hidden"></p>
+    <p id="overStats" class="best"></p>
+    <p id="worldRank" class="hidden"></p>
+    <div class="buttons">
+      <button id="retryBtn">もう一回</button>
+      <div class="row">
+        <button id="homeBtn" class="ghost">🏠 ホーム</button>
+        <button id="overSkinBtn" class="ghost">🎨 きせかえ</button>
+        <button id="overRankBtn" class="ghost">🌏 順位</button>
+      </div>
+      <button id="shareBtn" class="ghost">結果をシェア</button>
+    </div>
+  </div>
+
+  <div id="skins" class="overlay hidden">
+    <h2>きせかえ</h2>
+    <div id="skinGrid"></div>
+    <button id="skinClose">もどる</button>
+  </div>
+
+  <div id="ranking" class="overlay hidden">
+    <h2>🌏 今日の世界ランキング</h2>
+    <p id="rankRule" class="rank-rule"></p>
+    <div class="my-name">
+      あなたの名前：<b id="myName"></b>
+      <button id="rerollBtn" class="ghost tiny">🎲 変える</button>
+    </div>
+    <ol id="rankList"></ol>
+    <p id="rankStatus"></p>
+    <button id="rankClose">もどる</button>
+  </div>
+
+  <button id="muteBtn" aria-label="サウンド切替">🔊</button>
+
+  <script src="config.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
